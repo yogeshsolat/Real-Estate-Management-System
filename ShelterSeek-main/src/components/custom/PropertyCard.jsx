@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const PropertyCard = ({ Property }) => {
     return (
         <div className='border shadow-2xl transition-all ease-linear flex flex-col gap-1 rounded-lg p-2 '>
-            <img src={Property.image} alt="propimage" className='sm:min-h-72 flex flex-1 rounded-lg hover:scale-95 transition-all ease-out cursor-pointer ' />
+            <img src={`${Property.mainImgUrl}`} alt="propimage" className='sm:min-h-72 flex flex-1 rounded-lg hover:scale-95 transition-all ease-out cursor-pointer ' />
             <hr />
             <text className='font-bold text-2xl pt-1'>{Property.title}</text>
             <div className='flex pt-1 justify-between  items-center'>

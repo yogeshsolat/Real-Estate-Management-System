@@ -29,16 +29,19 @@ const Navbar = () => {
 
             </div>
             {
+                //<Link to={`/property/${Property.id}`} className='grid'><Button>Get Details</Button></Link>
                 user ?
                     <div className='flex gap-4 items-center'>
-                        <Link to='/profile'>
-                        <UserIcon />
+                        <Link to={`/profile/${user.firstName}`}>
+                            <UserIcon />
                         </Link>
                         <div className=' p-2 flex items-center' >
-                            <Button onClick={() => { setUser(null); }} className='gap-2'>
-                                <LogOut />
-                                logout
-                            </Button>
+                            <Link to='/'>
+                                <Button onClick={() => { setUser(null); }} className='gap-2'>
+                                    <LogOut />
+                                    logout
+                                </Button>
+                            </Link>
                         </div>
                     </div>
 

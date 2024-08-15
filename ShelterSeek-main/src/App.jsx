@@ -13,7 +13,10 @@ import PropertyDetails from './pages/PropertyDetails'
 import AddProperty from './pages/AddProperty'
 import Services from './pages/Services'
 import Contact from './pages/Contact'
-
+import UserForm from './pages/UserForm'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import OwnerForm from './pages/OwnerForm'
 export const UserContext = createContext(null);
 
 function App() {
@@ -34,9 +37,12 @@ function App() {
           <Route path='/addproperty' element={<AddProperty />}></Route>
           <Route path='/contact' element={<Contact />}></Route>
           <Route path='/services' element={<Services />}></Route>
+          <Route path='/userform' element={<UserForm/>}></Route>
+          <Route path='/ownerform' element={<OwnerForm/>}></Route>
           <Route path='/profile/:username' element={<UserProfile />}></Route>
           <Route path='/property/:id' element={<PropertyDetails />} />
         </Routes>
+        <ToastContainer/>
       </div>
     </UserContext.Provider>
   )
