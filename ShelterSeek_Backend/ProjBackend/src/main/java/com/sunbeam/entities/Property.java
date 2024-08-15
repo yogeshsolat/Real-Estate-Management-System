@@ -30,7 +30,6 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class Property extends BaseEntity{
     
 	@Column(name = "property_type")

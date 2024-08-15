@@ -26,7 +26,8 @@ public class PropertyController {
     @GetMapping("/getPropertyById/{id}")
     public ResponseEntity<?> getProperty(@PathVariable Long id){
 		try {
-			return ResponseEntity.status(HttpStatus.OK).body(propertyService.getProperty(id));
+			//return ResponseEntity.status(HttpStatus.OK).body(propertyService.getProperty(id));
+			return ResponseEntity.status(HttpStatus.OK).body(propertyService.getPropertyWithOwner(id));
 		}
 		catch(RuntimeException e){
 			System.out.println("error"+e);

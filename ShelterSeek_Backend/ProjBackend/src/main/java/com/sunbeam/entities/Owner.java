@@ -16,10 +16,14 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "owners")
@@ -68,7 +72,8 @@ public class Owner extends User{
     @JoinColumn(name = "owner_address_id")
     private Address ownerAddress;
     
-    @OneToMany
+    
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")
     private Set<Property> properties;
 	

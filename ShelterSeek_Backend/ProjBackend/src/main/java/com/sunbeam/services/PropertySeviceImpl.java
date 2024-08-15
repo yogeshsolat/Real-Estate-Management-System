@@ -18,6 +18,7 @@ import javax.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,7 +26,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.sunbeam.DAO.OwnerDao;
 import com.sunbeam.DAO.PropertyDao;
+import com.sunbeam.DTO.AddressDTO;
 import com.sunbeam.DTO.PropertyDTO;
+import com.sunbeam.DTO.PropertyDesDTO;
 import com.sunbeam.DTO.PropertyReqDTO;
 import com.sunbeam.DTO.PropertyResDTO;
 import com.sunbeam.custom_exceptions.ResourceNotFoundException;
@@ -69,16 +72,43 @@ public class PropertySeviceImpl implements PropertyService {
 	}
 
 	@Override
-	public PropertyResDTO getProperty(Long id) {
+	public PropertyDesDTO getProperty(Long id) {
 		// TODO Auto-generated method stub
 		Property property = propertyDao.findById(id).orElseThrow();
 		System.out.println(property.getMainImgUrl());
-		PropertyResDTO propertyDTO = modelMapper.map(property, PropertyResDTO.class);
+		System.out.println(property.getOwner().getFirstName());
+		PropertyDesDTO propertyDTO = modelMapper.map(property, PropertyDesDTO.class);
 //		propertyDao.save(property);
 		String imgarr[] = property.getMainImgUrl().split("images");
 		String mimg="http://localhost:8080/images/"+imgarr[imgarr.length-1].substring(1);
 		propertyDTO.setMainImgUrl(mimg);
-		return propertyDTO;
+//		propertyDTO.setOwner(property.getOwner());
+
+//		propertyDTO.setOwner(property.getOwner());
+//		System.out.println(property.getOwner());
+		propertyDao.save(property);
+		
+		
+		
+		
+		
+//		@Override
+//		public PropertyDesDTO getProperty(Long id) {
+//			// TODO Auto-generated method stub
+//			Property property = propertyDao.findById(id).orElseThrow();
+//			System.out.println(property.getMainImgUrl());
+//			
+//			PropertyDesDTO propertyDTO = modelMapper.map(property, PropertyDesDTO.class);
+////			propertyDao.save(property);
+//			String imgarr[] = property.getMainImgUrl().split("images");
+//			String mimg="http://localhost:8080/images/"+imgarr[imgarr.length-1].substring(1);
+//			propertyDTO.setMainImgUrl(mimg);
+//			propertyDTO.setOwner(property.getOwner());
+		
+		
+		
+	return propertyDTO;
+		
 	}
 	
 	public String uploadImage(MultipartFile file) throws IOException {
@@ -193,6 +223,29 @@ public class PropertySeviceImpl implements PropertyService {
 	  return list;
 	}
 
+	 public PropertyDesDTO getPropertyWithOwner(Long id) {
+	        Property property = propertyDao.findPropertyByIdWithOwner(id);
+	        if (property == null) {
+	            throw new ResourceNotFoundException("Property with ID " + id + " not found");
+	        }
+
+	        // Ensure the owner is being fetched
+	        Owner owner = property.getOwner();
+	        if (owner == null) {
+	            throw new ResourceNotFoundException("Owner not found for Property ID " + id);
+	        }
+
+	        PropertyDesDTO propertyDTO = modelMapper.map(property, PropertyDesDTO.class);
+
+	        // Process the image URL
+	        String imgarr[] = property.getMainImgUrl().split("images");
+	        String mimg = "http://localhost:8080/images/" + imgarr[imgarr.length - 1].substring(1);
+	        propertyDTO.setMainImgUrl(mimg);
+
+	        return propertyDTO;
+	    }
+	
+	
 	
 	
 	
