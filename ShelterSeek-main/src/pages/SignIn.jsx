@@ -43,7 +43,7 @@ const SignIn = () => {
         // sessionStorage.setItem('token', token)
         // sessionStorage.setItem('name', name)
 
-        sessionStorage.setItem('user', result)
+        sessionStorage.setItem('user', JSON.stringify(result))
         console.log(result)
 
         setUser(result)

@@ -8,7 +8,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import { ContactIcon } from 'lucide-react';
+import { ContactIcon, Mail, Phone, User2Icon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 
@@ -131,11 +131,19 @@ const PropertyDetails = () => {
               <p className="text-gray-700">${property.deposit}</p>
             </div>
 
-            <div>
-             
-              <Popover>
-                <PopoverTrigger> <Button> <ContactIcon/> Get Contact Details</Button></PopoverTrigger>
-                <PopoverContent>Place content for the popover here.</PopoverContent>
+            <div className='  py-16 '>
+
+              <Popover className=''>
+                <div className='flex '>
+                  <PopoverTrigger> <Button> <ContactIcon /> Get Contact Details</Button></PopoverTrigger>
+                  <PopoverContent className='grid gap-4'>
+                    <div className='flex gap-4'><User2Icon></User2Icon> {property.owner.firstName} {property.owner.lastName}</div>
+                    <div className='flex gap-4'><Phone></Phone> {property.owner.phoneNumber}</div>
+                    <div className='flex gap-4'><Mail></Mail> {property.owner.email}</div>
+                  </PopoverContent>
+                </div>
+
+
               </Popover>
             </div>
           </div>

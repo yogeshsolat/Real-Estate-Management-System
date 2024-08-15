@@ -118,8 +118,8 @@ const OwnerForm = () => {
                         <Label htmlFor='password'>Password</Label>
                         <Label htmlFor='confirmPass'>Confirm Password</Label>
                         <Label htmlFor='cardNumber'>Aadhar No.</Label>
-                        <Label htmlFor='location'>Aadhar location</Label>
-                        <Label htmlFor='createdOn'>Aadhar Created On</Label>
+                        {/* <Label htmlFor='location'>Aadhar location</Label>
+                        <Label htmlFor='createdOn'>Aadhar Created On</Label> */}
                         <Label htmlFor='adrLine1'>Address line 1</Label>
                         <Label htmlFor='adrline2'>Address line 2</Label>
                         <Label htmlFor='city'>City</Label>
@@ -168,13 +168,13 @@ const OwnerForm = () => {
                             onChange={handleInput}
                             type="number" placeholder="Aadhar no." min='12' max='12' />
 
-                        <Input name="location"
+                        {/* <Input name="location"
                             onChange={handleInput}
                             type="text" placeholder="location" />
 
                         <Input name="createdOn"
                             onChange={handleInput}
-                            type="date" placeholder="Date of creation" />
+                            type="date" placeholder="Date of creation" /> */}
 
                         <Input name="adrLine1"
                             onChange={handleInput}

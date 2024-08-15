@@ -21,9 +21,15 @@ import AllOwnerProps from './pages/AllOwnerProps'
 import WishlistPage from './pages/WishlistPage'
 export const UserContext = createContext(null);
 
+
+
 function App() {
   
-  const [user,setUser] = useState(null);
+  
+
+  const [user,setUser] = useState(() =>
+    sessionStorage["user"] ? JSON.parse(sessionStorage["user"]) : null
+  );
 
   return (
     <UserContext.Provider value={{user,setUser}}>
