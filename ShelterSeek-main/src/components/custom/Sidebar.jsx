@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { PropDet } from '@/data/Data'
+// import { PropDet } from '@/data/Data'
 
 import {
     Accordion,
@@ -20,14 +20,14 @@ const applyFilter =(city,category) => {
 
 
 
-const Sidebar = ({setCity ,setCategory}) => {
+const Sidebar = ({setCity ,setCategory, propDet}) => {
 
     const [cities,setCities] = useState([]);
     let cc=[]
     useEffect(()=>{
-        for(let c of PropDet){
-            if(!cc.includes(c.city)){
-                cc.push(c.city)
+        for(let c of propDet){
+            if(!cc.includes(c.propAddress.city)){
+                cc.push(c.propAddress.city)
             }
         }
         setCities(cc);
@@ -37,7 +37,7 @@ const Sidebar = ({setCity ,setCategory}) => {
     const [categories,setCategories] = useState([]);
     let ccc=[]
     useEffect(()=>{
-        for(let c of PropDet){
+        for(let c of propDet){
             if(!ccc.includes(c.category)){
                 ccc.push(c.category)
             }

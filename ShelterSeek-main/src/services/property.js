@@ -26,3 +26,15 @@ export async function getPropById(pid){
 
     return response.data
 }
+
+export async function getpropsbyowner(oid){
+  const response = await axios.get(`${config.url}/api/properties/allPropertiesByOwnerId/${oid}`)
+
+  return response.data
+}
+
+export async function deletePropByID(pid){
+  const response = await axios.delete(`${config.url}/api/properties/delete/${pid}`)
+
+  response.data
+}

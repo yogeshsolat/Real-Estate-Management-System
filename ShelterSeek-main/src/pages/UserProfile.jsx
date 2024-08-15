@@ -38,9 +38,11 @@ const UserProfile = () => {
 
   const { user } = useContext(UserContext)
 
+  
+
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-r from-gray-300 to-slate-500 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8 bg-white p-8 border border-gray-200 rounded-lg shadow-lg transition-transform transform hover:scale-105">
         <h2 className="text-4xl font-bold text-gray-800 text-center mb-6">User Profile</h2>
 
@@ -72,20 +74,22 @@ const UserProfile = () => {
 
           {/* Buttons */}
           <div className="flex  flex-col gap-2 p-3">
-            <button
+           <Link to={`/wishlist/${user.id}`}>
+           <button
               type="button"
               className="w-full bg-black text-white py-3 rounded-lg shadow-md  hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-colors flex items-center justify-center space-x-4"
             >
               <HeartIcon className="text-white" />
               <span>View Wishlist</span>
             </button>
+           </Link>
 
 
 
             {
               user.role == 'OWNER' &&
               <>
-                <Link>
+                <Link to={`/ownerprops/${user.id}`}>
                   <button
                     type="button"
                     className="w-full bg-black text-white py-3 rounded-lg shadow-md hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 transition-colors flex items-center justify-center space-x-4"

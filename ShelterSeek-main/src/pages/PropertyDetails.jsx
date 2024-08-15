@@ -3,6 +3,15 @@ import { useParams } from 'react-router-dom'
 import { getPropById } from '@/services/property';
 //import { PropDet } from '@/data/Data';
 
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+import { ContactIcon } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+
 const PropertyDetails = () => {
   const { id } = useParams();
   //   const property = PropDet[id - 1]
@@ -18,8 +27,8 @@ const PropertyDetails = () => {
   }, [])
 
 
-  if(property==null)
-  return;
+  if (property == null)
+    return;
   // 
 
 
@@ -122,6 +131,13 @@ const PropertyDetails = () => {
               <p className="text-gray-700">${property.deposit}</p>
             </div>
 
+            <div>
+             
+              <Popover>
+                <PopoverTrigger> <Button> <ContactIcon/> Get Contact Details</Button></PopoverTrigger>
+                <PopoverContent>Place content for the popover here.</PopoverContent>
+              </Popover>
+            </div>
           </div>
         </div>
       </div>

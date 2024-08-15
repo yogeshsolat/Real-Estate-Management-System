@@ -17,6 +17,8 @@ import UserForm from './pages/UserForm'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import OwnerForm from './pages/OwnerForm'
+import AllOwnerProps from './pages/AllOwnerProps'
+import WishlistPage from './pages/WishlistPage'
 export const UserContext = createContext(null);
 
 function App() {
@@ -41,6 +43,8 @@ function App() {
           <Route path='/ownerform' element={<OwnerForm/>}></Route>
           <Route path='/profile/:username' element={<UserProfile />}></Route>
           <Route path='/property/:id' element={<PropertyDetails />} />
+          <Route path='/ownerprops/:id' element={<AllOwnerProps />} />
+          <Route path='/wishlist/:id' element={<WishlistPage />} />
         </Routes>
         <ToastContainer/>
       </div>

@@ -335,6 +335,7 @@ const AddProperty = () => {
     formData.append("propSize", property.propSize);
     formData.append("isfurnished", property.isfurnished);
     formData.append("rent", property.rent);
+    formData.append("price", property.price);
     formData.append("parking", property.parking);
     formData.append("title", property.title);
     formData.append("category", property.category);

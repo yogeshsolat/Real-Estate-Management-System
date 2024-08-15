@@ -49,7 +49,7 @@ const Properties = () => {
 
   return (
     <div className='flex '>
-      <Sidebar city={city} setCity={setCity} setCategory={setCategory} />
+      <Sidebar city={city} setCity={setCity} setCategory={setCategory}  propDet={propDet}/>
       <div className='grid sm:grid-cols-4 grid-cols-2 gap-4 flex-1'>
         {
           propDet.map((property) => (
