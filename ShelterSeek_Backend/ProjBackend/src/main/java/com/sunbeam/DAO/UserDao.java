@@ -11,4 +11,5 @@ import com.sunbeam.entities.User;
 public interface UserDao extends JpaRepository<User, Long>{
 	List<User> findByRole(Role role);
 	Optional<User> findByEmailAndPassword(String email, String pwd);
+	Optional<User> findByEmail(String email);
 }

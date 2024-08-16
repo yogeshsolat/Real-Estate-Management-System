@@ -22,4 +22,6 @@
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
     <fullyQualifiedTypeName name="org.springframework.data.repository.query.Param"/>
     <fullyQualifiedTypeName name="com.sunbeam.DTO.PropertyDesDTO"/>
+    <fullyQualifiedTypeName name="com.sunbeam.DAO.UserDao"/>
+    <fullyQualifiedTypeName name="com.sunbeam.entities.User"/>
 </qualifiedTypeNameHistroy>

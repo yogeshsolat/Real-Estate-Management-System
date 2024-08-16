@@ -43,15 +43,18 @@ const SignIn = () => {
         // sessionStorage.setItem('token', token)
         // sessionStorage.setItem('name', name)
 
-        sessionStorage.setItem('user', JSON.stringify(result))
-        console.log(result)
+        // sessionStorage.setItem('user', JSON.stringify(result))
+        // console.log(result)
+
+        const token =  (result.jwt);
+        sessionStorage.setItem('token',token)
 
         setUser(result)
 
         toast.success('welcome to the application')
         navigate('/')
       }
-      else if (result['isBlocked'] == false) {
+      else if (result['isBlocked'] == true) {
         toast.error("you are blocked by admin")
       }
       else {

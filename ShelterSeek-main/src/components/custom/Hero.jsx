@@ -30,8 +30,8 @@ const Hero = () => {
             <Carousel
                 plugins={[plugin.current]}
                 className="w-full overflow-hidden p-0"
-                onMouseEnter={plugin.current.stop}
-                onMouseLeave={plugin.current.reset}
+                onMouseEnter={plugin.current.Autoplay}
+                onMouseLeave={plugin.current.Autoplay}
             >
                 <CarouselContent className=' border-black'>
                     {carouselImages.map((image, index) => (
